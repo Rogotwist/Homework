@@ -1,26 +1,33 @@
-import os
-import json
+import tkinter as tk
 
-def open_file(data):
-    """
-    Открывает файл \ создает файл при первом открытии -> берет все данные файла -> Закрывает файл
-    :return: Данные файла в виде списка-словарей
-    """
-    filepath = "data.json"
-    try:
-        with open(filepath, "r") as json_file:
-            load_data = json.load(json_file)
-        return load_data
-    except FileNotFoundError:
-        # Если файл не существует, создаем новый и записываем в него данные по умолчанию
-        if data is not None:
-            with open(filepath, 'w') as json_file:
-                json.dump(data, json_file)
-            return data
-        else:
-            # Если нет данных по умолчанию, просто возвращаем None
-            return None
+def get_data():
+    name = name_entry.get()
+    address = address_entry.get()
+    phone = phone_entry.get()
 
-print(open_file(data))
+    print(f"Имя: {name}")
+    print(f"Адрес: {address}")
+    print(f"Телефон: {phone}")
 
+app = tk.Tk()
+app.title("Ввод данных")
 
+name_label = tk.Label(app, text="Имя:")
+name_label.pack()
+name_entry = tk.Entry(app)
+name_entry.pack()
+
+address_label = tk.Label(app, text="Адрес:")
+address_label.pack()
+address_entry = tk.Entry(app)
+address_entry.pack()
+
+phone_label = tk.Label(app, text="Телефон:")
+phone_label.pack()
+phone_entry = tk.Entry(app)
+phone_entry.pack()
+
+submit_button = tk.Button(app, text="Отправить", command=get_data)
+submit_button.pack()
+
+app.mainloop()

@@ -3,7 +3,7 @@ import json
 
 
 
-def add_contact(f_name, l_name, telephone, addres):
+def add_contact(f_name, l_name, telephone, address):
     """
     Запись информации о контакте в БД
 
@@ -13,9 +13,16 @@ def add_contact(f_name, l_name, telephone, addres):
     :param addres:
     :return: возвращает словарь данных
     """
-
-
-    pass
+    full_address = address
+    city = full_address.split(', ')
+    contact = {
+        'Name': f_name,
+        'Last Name': l_name,
+        'Telephone': telephone,
+        'Address': address[1:],
+        'City': city[0]
+    }
+    return contact
 
 
 def view_contacts():
@@ -47,20 +54,25 @@ def search_contact():
     """
 
 
-def open_file():
+def open_file(data):
     """
     Открывает файл \ создает файл при первом открытии -> берет все данные файла -> Закрывает файл
     :return: Данные файла в виде списка-словарей
     """
     filepath = "data.json"
-    try:
-        with open(filepath, "r") as json_file:
-            load_data = json.load(json_file)
-        return load_data
-    except FileNotFoundError:
-        # Если файл не существует, создаем новый и записываем в него данные по умолчанию
-        with open(filepath, 'w') as json_file:
-            print('Файл создан')
+    if not data:
+        try:
+            with open(filepath, "r") as json_file:
+                load_data = json.load(json_file)
+            return load_data
+        except FileNotFoundError:
+            # Если файл не существует, создаем новый и записываем в него данные по умолчанию
+            with open(filepath, 'w') as json_file:
+                print('Файл создан, запись обновлена')
+                json.dump(data, json_file)
+    else:
+        with open(filepath, "w") as json_file:
+            json.dump(data, json_file)
 def main():
     num = 0
     print(f"""

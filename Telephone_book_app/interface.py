@@ -3,6 +3,15 @@ from tkinter import ttk
 import app_logic
 
 
+list_contacts = []
+def clear_input():
+
+    name_entry.delete(0, tk.END)
+    surname_entry.delete(0, tk.END)
+    phone_entry.delete(0, tk.END)
+    address_entry.delete(0, tk.END)
+
+
 def add_contact_button_clicked():
     f_name = name_entry.get()
     l_name = surname_entry.get()
@@ -10,7 +19,11 @@ def add_contact_button_clicked():
     address = address_entry.get()
 
     contact = app_logic.add_contact(f_name, l_name, telephone, address)
-    app_logic.open_file(contact)
+    app_logic.open_file(contact,list_contacts)
+    clear_input()
+
+
+
 
 
 
@@ -66,6 +79,9 @@ if __name__ == "__main__":
     separator.grid(row=6, column=0, columnspan=2, pady=10)
 
     contact_list.grid(row=7, column=0, columnspan=2)
+
+    # Загрузка данных
+    app_logic.load_data_start(list_contacts)
 
     # Запуск главного цикла приложения
     root.mainloop()

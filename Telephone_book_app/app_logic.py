@@ -2,6 +2,15 @@ import os
 import json
 
 
+def load_data_start(list_contacts):
+    for file in os.listdir(os.getcwd()):
+        if file == 'data.json':
+            with open(file, 'r') as json_file:
+                load_data = json.load(json_file)
+                list_contacts.append(load_data)
+                print('Данные обновлены!')
+                print(list_contacts)
+
 
 def add_contact(f_name, l_name, telephone, address):
     """
@@ -25,14 +34,6 @@ def add_contact(f_name, l_name, telephone, address):
     return contact
 
 
-def view_contacts():
-    """
-    Отображение контактов в интерфейсе программы
-    :return:
-    """
-    pass
-
-
 def change_contact():
     """
     Изменяет информацию выбранного контакта
@@ -54,17 +55,20 @@ def search_contact():
     """
 
 
-def open_file(data):
+def open_file(data, list_contacts):
     """
     Открывает файл \ создает файл при первом открытии -> берет все данные файла -> Закрывает файл
     :return: Данные файла в виде списка-словарей
     """
     filepath = "data.json"
+    print(data)
     if not data:
         try:
             with open(filepath, "r") as json_file:
                 load_data = json.load(json_file)
-            return load_data
+                list_contacts.append(load_data)
+                print(list_contacts)
+            return list_contacts
         except FileNotFoundError:
             # Если файл не существует, создаем новый и записываем в него данные по умолчанию
             with open(filepath, 'w') as json_file:
@@ -72,7 +76,8 @@ def open_file(data):
                 json.dump(data, json_file)
     else:
         with open(filepath, "w") as json_file:
-            json.dump(data, json_file)
+            list_contacts.append(data)
+            json.dump(list_contacts, json_file)
 def main():
     num = 0
     print(f"""

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>624</width>
+    <height>308</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Downloader YouTubr videos</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(253, 195, 0, 255), stop:0.427447 rgba(217, 7, 46, 255), stop:0.427447 rgba(217, 7, 46, 255) , stop:1 rgba(253, 195, 0, 255));
+font-color: rgb(255, 255, 255);
+</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QFrame" name="main_frame_2">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgba(255, 255, 255, 30);
+border: 1px solid rgba(255, 255, 255, 40);
+border-radius: 7px;
+
+</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="description_to_load">
+         <property name="font">
+          <font>
+           <family>Sans Serif Collection</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;
+font-size: 13pt;
+background-color: none;
+border: none;</string>
+         </property>
+         <property name="text">
+          <string>Вставьте ссылку скачиваемого видео</string>
+         </property>
+         <property name="margin">
+          <number>5</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="input_link">
+         <property name="font">
+          <font>
+           <family>Sans Serif Collection</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;
+font-size: 10pt;
+padding-left: 10px;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>https://www.youtube.com/watch-code-video</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="description_to_path">
+         <property name="font">
+          <font>
+           <family>Sans Serif Collection</family>
+           <pointsize>13</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;
+font-size: 13pt;
+background-color: none;
+border: none;</string>
+         </property>
+         <property name="text">
+          <string>Выберите путь загрузки видео </string>
+         </property>
+         <property name="margin">
+          <number>5</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="input_path">
+         <property name="font">
+          <font>
+           <family>Sans Serif Collection</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;
+font-size: 10pt;
+padding-left: 10px;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>C:\Users\User\Desktop\Download</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Download_button">
+         <property name="font">
+          <font>
+           <family>Sans Serif Collection</family>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;</string>
+         </property>
+         <property name="text">
+          <string>Загрузка</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exit_button">
+         <property name="font">
+          <font>
+           <family>Sans Serif Collection</family>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white;</string>
+         </property>
+         <property name="text">
+          <string>Выход</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
